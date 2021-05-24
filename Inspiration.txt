@@ -3,3 +3,5 @@ Potential
 
 https://medium.com/analytics-vidhya/forecasting-apple-stock-prices-using-lstms-and-tensorflow-e070f8c80723
 Tutorials followed:
+hellop
+
