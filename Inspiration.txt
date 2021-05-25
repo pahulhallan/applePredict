@@ -5,3 +5,4 @@ https://medium.com/analytics-vidhya/forecasting-apple-stock-prices-using-lstms-a
 Tutorials followed:
 hellop
 
+https://colab.research.google.com/drive/1QyP6oAEFZUolJpRTtU9IbtvOMHj-L-2z?authuser=2#scrollTo=Sfk5KeLExvlx
