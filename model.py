@@ -1,5 +1,7 @@
 from sklearn.preprocessing import MinMaxScaler
 import numpy as np
+import pandas as pd
+import tensorflow as tf
 
 training_set = train_data.iloc[:, 3:4].values
 real_stock_price = test_data.iloc[:, 3:4].values
@@ -32,3 +34,18 @@ model.summary()
 
 
 modelo = model.fit(X_train, y_train, epochs=100, batch_size=32)
+
+
+####################Predict
+dataset_total = pd.concat([train_data[‘Open’], test_data[‘Open’]], axis=0)
+inputs = dataset_total[len(dataset_total) — len(test_data) — 60:].values
+inputs = inputs.reshape(-1,1)
+inputs = sc.transform(inputs)
+X_test = []
+for i in range(60, 259):
+   X_test.append(inputs[i-60:i, 0])
+X_test = np.array(X_test)
+X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
+
+predicted_stock_price = model.predict(X_test)
+predicted_stock_price = model.predict(X_test)
