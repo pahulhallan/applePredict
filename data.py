@@ -60,7 +60,7 @@ model.add(tf.keras.layers.Dense(units=1))
 model.summary()
 #We use Dropout layers to avoid Overfitting problems, and besides that, we use the parameter “return_sequences” to determine if the layer will return a sequence compatible with a LSTM. We use “return_sequences=True” when we have a LSTM layer after!
 
-
+model.compile("Adam", "MSE")
 modelo = model.fit(X_train, y_train, epochs=100, batch_size=32)
 
 
