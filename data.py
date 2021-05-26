@@ -3,6 +3,7 @@ from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+import matplotlib as plt
 
 data  =  pd.read_csv("appl.csv")
 data["Date"]=pd.to_datetime(data.Date)
@@ -77,4 +78,15 @@ X_test = np.array(X_test)
 X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
 
 predicted_stock_price = model.predict(X_test)
-predicted_stock_price = model.predict(X_test)
+predicted_stock_price = sc.inverse_transform(predicted_stock_price)
+
+plt.figure(figsize=(12, 6))
+
+plt.plot(real_stock_price, color='black', label='Apple Stock Price')
+plt.plot(predicted_stock_price, color='red', label='Predicted Apple Stock Price')
+
+plt.title('Apple Stock Price Prediction')
+plt.xlabel('Time')
+plt.xlabel('Apple Stock Price')
+plt.legend()
+plt.show()
