@@ -44,11 +44,12 @@ for i in range(60, 1000):
     X_train.append(training_data_scaled[i - 60:i, 0])
     y_train.append(training_data_scaled[i, 0])
 X_train, y_train = np.array(X_train), np.array(y_train)
+X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
 
 # Building Model:
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.LSTM(units=50, return_sequences=True,
-                               input_shape=(X_train.shape[1], 1)))
+                              input_shape=(X_train.shape[1],1)))
 model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.LSTM(units=50, return_sequences=True))
 model.add(tf.keras.layers.Dropout(0.2))
