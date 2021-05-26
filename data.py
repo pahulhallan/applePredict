@@ -3,7 +3,7 @@ from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-import matplotlib as plt
+from matplotlib import pyplot as plt
 
 data  =  pd.read_csv("appl.csv")
 data["Date"]=pd.to_datetime(data.Date)
